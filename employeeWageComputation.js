@@ -2,7 +2,9 @@ const isPresentFullTime = 1;
 const isPresentPartTime = 2;
 let wagePerHour = 20;
 let fullDayHour = 8;
-//let dailyEmpWage = 0;
+let dailyEmpWage = 0;
+let totalEmpWage = 0;
+const numOfWorkingDays = 20;
 
 getWelcomeMessage();
 
@@ -11,23 +13,23 @@ function getWelcomeMessage() {
     console.log(`----------------------------------------------------`);
 }
 
-var randomCheck = Math.floor(Math.random() * 3);
+for(let i = 0; i <= numOfWorkingDays; i++) {
+    var randomCheck = Math.floor(Math.random() * 3);
 
-switch(randomCheck) {
-    case 1:
-        console.log(`Employee is Present full time `);
-        employeeHour = 8; 
-        break;
+    switch(randomCheck) {
+        case 1:
+            employeeHour = 8; 
+            break;
 
-    case 2:
-        console.log(`Employee is Present part time `);
-        employeeHour = 4;
-        break;
+        case 2:
+            employeeHour = 4;
+            break;
 
-    default:
-        console.log(`Employee is absent`);
-        employeeHour = 0;
-        break;
+        default:
+            employeeHour = 0;
+            break;
+    }
+    dailyEmpWage = wagePerHour * employeeHour;
+    totalEmpWage += dailyEmpWage;
 }
-dailyEmpWage = wagePerHour * employeeHour;
-console.log(`Daily employee wage is : ${dailyEmpWage} \n`); 
+console.log(`employee wage for month is : ${totalEmpWage} \n`); 

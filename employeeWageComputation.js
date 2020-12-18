@@ -17,25 +17,44 @@ function getWelcomeMessage() {
     console.log(`----------------------------------------------------`);
 }
 
-while( employeeHour <= maxHrsInMonth && totalWorkingDays <= numOfWorkingDays) {
+let getRandomCheck = () => {
     var randomCheck = Math.floor(Math.random() * 3);
-
-    switch(randomCheck) {
-        case 1:
-            employeeHour = 8; 
-            break;
-
-        case 2:
-            employeeHour = 4;
-            break;
-
-        default:
-            employeeHour = 0;
-            break;
-    }
-    totalEmpHour +=  employeeHour;
-    console.log(`day: ${totalWorkingDays} && employee hour : ${totalEmpHour}`)
-    totalWorkingDays++;
+    return randomCheck;
 }
-totalEmpWage = totalEmpHour * wagePerHour;
-console.log(`employee wage per month till maximum condition reached is : ${totalEmpWage} \n`); 
+
+let getWorkHours = () => {
+    while( employeeHour <= maxHrsInMonth && totalWorkingDays <= numOfWorkingDays) {
+        switch(getRandomCheck()) {
+            case 1:
+                employeeHour = 8; 
+                break;
+
+            case 2:
+                employeeHour = 4;
+                break;
+
+            default:
+                employeeHour = 0;
+                break;
+        }
+       //let dayWage = getDailyWage();
+        totalEmpHour +=  employeeHour;
+        console.log(`day: ${totalWorkingDays}  -->  employee hour : ${totalEmpHour}  -->   Daily wage: ${getDailyWage()}`)
+        totalWorkingDays++;
+    }
+    console.log(`total work hours is: ${totalEmpHour}`)
+    return totalEmpHour;
+}
+
+let getDailyWage = () => {
+    dailyEmpWage = employeeHour * wagePerHour;
+   // console.log(`--- Daily employee Wage is ${dailyEmpWage} ---`);
+   return dailyEmpWage;
+}
+
+function getTotalEmpWage() {
+    totalEmpWage = getWorkHours() * wagePerHour;
+    console.log(`\n employee wage per month till maximum condition reached is : ${totalEmpWage} \n`);
+}
+
+getTotalEmpWage();

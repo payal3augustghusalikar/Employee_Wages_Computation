@@ -5,6 +5,10 @@ let fullDayHour = 8;
 let dailyEmpWage = 0;
 let totalEmpWage = 0;
 const numOfWorkingDays = 20;
+const maxHrsInMonth = 100;
+let totalWorkingDays = 1;
+let totalEmpHour = 0;
+let employeeHour = 0;
 
 getWelcomeMessage();
 
@@ -13,7 +17,7 @@ function getWelcomeMessage() {
     console.log(`----------------------------------------------------`);
 }
 
-for(let i = 0; i <= numOfWorkingDays; i++) {
+while( employeeHour <= maxHrsInMonth && totalWorkingDays <= numOfWorkingDays) {
     var randomCheck = Math.floor(Math.random() * 3);
 
     switch(randomCheck) {
@@ -29,7 +33,9 @@ for(let i = 0; i <= numOfWorkingDays; i++) {
             employeeHour = 0;
             break;
     }
-    dailyEmpWage = wagePerHour * employeeHour;
-    totalEmpWage += dailyEmpWage;
+    totalEmpHour +=  employeeHour;
+    console.log(`day: ${totalWorkingDays} && employee hour : ${totalEmpHour}`)
+    totalWorkingDays++;
 }
-console.log(`employee wage for month is : ${totalEmpWage} \n`); 
+totalEmpWage = totalEmpHour * wagePerHour;
+console.log(`employee wage per month till maximum condition reached is : ${totalEmpWage} \n`); 

@@ -37,7 +37,6 @@ let getWorkHours = () => {
                 employeeHour = 0;
                 break;
         }
-       //let dayWage = getDailyWage();
         totalEmpHour +=  employeeHour;
         console.log(`day: ${totalWorkingDays}  -->  employee hour : ${totalEmpHour}  -->   Daily wage: ${getDailyWage()}`)
         totalWorkingDays++;
@@ -48,7 +47,6 @@ let getWorkHours = () => {
 
 let getDailyWage = () => {
     dailyEmpWage = employeeHour * wagePerHour;
-   // console.log(`--- Daily employee Wage is ${dailyEmpWage} ---`);
    return dailyEmpWage;
 }
 

@@ -1,35 +1,28 @@
 const isPresentFullTime = 1;
 const isPresentPartTime = 2;
+const numOfWorkingDays = 20;
+const maxHrsInMonth = 100;
 let wagePerHour = 20;
 let fullDayHour = 8;
 let dailyEmpWage = 0;
 let totalEmpWage = 0;
-const numOfWorkingDays = 20;
-const maxHrsInMonth = 100;
 let totalWorkingDays = 1;
 let totalEmpHour = 0;
 let employeeHour = 0;
 
-getWelcomeMessage();
+console.log(`\n ******* Welcome to employee wage computation ******* \n`);
+console.log(`----------------------------------------------------`);
 
-function getWelcomeMessage() {
-    console.log(`\n ******* Welcome to employee wage computation ******* \n`);
-    console.log(`----------------------------------------------------`);
-}
+getRandomCheck = () => randomCheck = Math.floor(Math.random() * 3)
 
-let getRandomCheck = () => {
-    var randomCheck = Math.floor(Math.random() * 3);
-    return randomCheck;
-}
-
-let getWorkHours = () => {
+getWorkHours = () => {
     while( employeeHour <= maxHrsInMonth && totalWorkingDays <= numOfWorkingDays) {
         switch(getRandomCheck()) {
-            case 1:
+            case isPresentFullTime:
                 employeeHour = 8; 
                 break;
 
-            case 2:
+            case isPresentPartTime:
                 employeeHour = 4;
                 break;
 
@@ -45,12 +38,9 @@ let getWorkHours = () => {
     return totalEmpHour;
 }
 
-let getDailyWage = () => {
-    dailyEmpWage = employeeHour * wagePerHour;
-   return dailyEmpWage;
-}
-
-function getTotalEmpWage() {
+getDailyWage = () => employeeHour * wagePerHour
+  
+getTotalEmpWage = () => {
     totalEmpWage = getWorkHours() * wagePerHour;
     console.log(`\n employee wage per month till maximum condition reached is : ${totalEmpWage} \n`);
 }

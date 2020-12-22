@@ -19,15 +19,15 @@ getRandomCheck = () => Math.floor(Math.random() * 3)
 
 getWorkHours = (company, numOfWorkingDays,  maxHrsInMonth) => {
 
- this.company = company;
- this.wagePerHour = wagePerHour;
- this.numOfWorkingDays = numOfWorkingDays;
- this.maxHrsInMonth = maxHrsInMonth;
- employeeHour = 0;
+    this.company = company;
+    this.wagePerHour = wagePerHour;
+    this.numOfWorkingDays = numOfWorkingDays;
+    this.maxHrsInMonth = maxHrsInMonth;
+    employeeHour = 0;
     totalWorkingDays = 1;
-while( employeeHour <= this.maxHrsInMonth && totalWorkingDays <= this.numOfWorkingDays) {
+    while( employeeHour <= this.maxHrsInMonth && totalWorkingDays <= this.numOfWorkingDays) {
    
- switch(getRandomCheck()) {
+    switch(getRandomCheck()) {
             case isPresentFullTime:
                 employeeHour = 8; 
                 break;
@@ -43,53 +43,20 @@ while( employeeHour <= this.maxHrsInMonth && totalWorkingDays <= this.numOfWorki
         totalEmpHour +=  employeeHour;
         console.log(`day: ${totalWorkingDays}  -->  employee hour : ${totalEmpHour}  -->   Daily wage: ${employeeHour * this.wagePerHour}`)
         totalWorkingDays++;
-       // getDailyWage = () => employeeHour * this.wagePerHour;
     }
-   
     console.log(`total work hours for ${this.company} is: ${totalEmpHour}`)
-    return totalEmpHour;
-    
+    return totalEmpHour;  
 }
 
 
-  
 getTotalEmpWage = (company, wagePerHour, numOfWorkingDays,  maxHrsInMonth) => {
     totalEmpWage = getWorkHours(company, numOfWorkingDays,  maxHrsInMonth) * wagePerHour;
-    console.log(`\n employee wage per month till maximum condition reached is : ${totalEmpWage} \n`);
-   
+    console.log(`\n employee wage for company ${company} per month till maximum condition reached is : ${totalEmpWage} \n`);   
 }
 
-//getTotalEmpWage();
-
-    // companyData = [company, wagePerHour, maxHrsInMonth, totalEmpWage]
-    
-    // CompanyEmpWage(company, wagePerHour, numOfWorkingDays,  maxHrsInMonth) {
-    // this.company = company;
-    // this.wagePerHour = wagePerHour;
-    // this.numOfWorkingDays = numOfWorkingDays;
-    // this.maxHrsInMonth = maxHrsInMonth;
-    // }
-
-    
-//  setTotalEmpWage( totalEmpWage) {
-//       this.totalEmpWage = totalEmpWage;
-//     }
-
-
- //  addCompanyEmpWage(company, empRatePerHr, numOfWorkingDays,  maxHrPerMonth) {
-    
     getTotalEmpWage("sbi", 50, 20, 100);
     getTotalEmpWage("sc", 40, 20, 100);
     getTotalEmpWage("boi", 30, 20, 100);
     getTotalEmpWage("uco", 30, 20, 100);
   
-    //   computeEmpWage();
-    // }
   
-    // computeEmpWage() {
-    //     for(let i=0; i<companyData.length; i++) {
-    //     companyEmpWage = companyData.get(i);
-    //     companyEmpWage.setTotalEmpWage(this.computeEmpWage(companyEmpWage));
-    //     }
-    // }
-

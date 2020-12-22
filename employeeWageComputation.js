@@ -49,14 +49,14 @@ getWorkHours = (company, numOfWorkingDays,  maxHrsInMonth) => {
 }
 
 
-getTotalEmpWage = (company, wagePerHour, numOfWorkingDays,  maxHrsInMonth) => {
+empWageBuilder = (company, wagePerHour, numOfWorkingDays,  maxHrsInMonth) => {
     totalEmpWage = getWorkHours(company, numOfWorkingDays,  maxHrsInMonth) * wagePerHour;
     console.log(`\n employee wage for company ${company} per month till maximum condition reached is : ${totalEmpWage} \n`);   
 }
 
-    getTotalEmpWage("sbi", 50, 20, 100);
-    getTotalEmpWage("sc", 40, 20, 100);
-    getTotalEmpWage("boi", 30, 20, 100);
-    getTotalEmpWage("uco", 30, 20, 100);
+empWageBuilder("sbi", 50, 20, 100);
+empWageBuilder("sc", 40, 20, 100);
+empWageBuilder("boi", 30, 20, 100);
+empWageBuilder("uco", 30, 20, 100);
   
   
